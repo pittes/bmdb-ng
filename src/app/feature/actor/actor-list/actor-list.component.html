@@ -1,0 +1,30 @@
+<!-- <app-menu></app-menu> -->
+<div class="component-content">
+	<div class="lefthalf">
+		<span class="component-title">[{{ title }}]</span>
+		<!-- <span><a routerLink='/actor/create'>
+			<img id="createnew" width="20" height="20" src="assets/add-icon.png" title="Add New">
+			</a>
+		</span> -->
+	</div>	
+</div>
+<p *ngIf="!actors">Loading...</p>
+<table class="table table-sm" *ngIf="actors">
+	<tr>
+		<th class="table-secondary">Id</th>
+		<th class="table-secondary">FirstName</th>
+		<th class="table-secondary">LastName</th>
+		<th class="table-secondary">Gender</th>
+		<th class="table-secondary">BirthDate</th>
+		<th class="table-secondary">Action</th>
+	</tr>
+	<tr *ngFor="let actor of actors">
+		<td>{{ actor.Id }}</td><td>{{ actor.FirstName }}</td><td>{{ actor.LastName }}</td><td>{{ actor.Gender }}</td><td>{{ actor.BirthDate }}</td>
+		<td class="actions">
+			<a routerLink='/actor/detail/{{actor.Id}}'>
+			<img src="assets/details.png" width="20" height="20" title="Detail"></a>
+			<a routerLink='/actor/edit/{{actor.Id}}'>
+			<img src="assets/pencil-icon.png" width="20" height="20" title="Edit"></a>
+		</td>
+	</tr>
+</table>
